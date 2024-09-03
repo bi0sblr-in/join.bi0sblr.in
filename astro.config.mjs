@@ -1,10 +1,14 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
+import vercel from '@astrojs/vercel/serverless';
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
   integrations: [starlight({
     title: 'bi0sblr Recruitment',
     logo: {
